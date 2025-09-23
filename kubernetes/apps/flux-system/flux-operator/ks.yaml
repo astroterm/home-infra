@@ -6,6 +6,18 @@ metadata:
   namespace: &namespace flux-system
 spec:
   targetNamespace: flux-system
+
+  interval: 1h
+  retryInterval: 5m
+  timeout: 10m
+  prune: true
+
+  path: ./kubernetes/apps/flux-system/flux-operator/app
+
+  sourceRef:
+    kind: GitRepository
+    name: home-infra
+
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
@@ -14,11 +26,3 @@ spec:
       kind: HelmRelease
       name: *app
       namespace: *namespace
-  path: ./kubernetes/apps/flux-system/flux-operator/app
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: home-infra
-  interval: 1h
-  retryInterval: 5m
-  timeout: 10m
