@@ -5,14 +5,14 @@ metadata:
   name: &app coredns
   namespace: &namespace flux-system
 spec:
-  targetNamespace: flux-system
+  targetNamespace: kube-system
 
   interval: 1h
   retryInterval: 5m
   timeout: 10m
   prune: true
 
-  path: ./kubernetes/apps/flux-system/flux-operator/app
+  path: ./kubernetes/apps/kube-system/coredns/app
 
   sourceRef:
     kind: GitRepository
