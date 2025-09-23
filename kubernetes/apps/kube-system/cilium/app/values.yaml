@@ -1,0 +1,26 @@
+---
+ipv4NativeRoutingCIDR: 10.42.0.0/16
+routingMode: native
+
+rollOutCiliumPods: true
+kubeProxyReplacement: true
+
+ipam:
+  mode: kubernetes
+gatewayAPI:
+  enabled: true
+ipv4:
+  enabled: true
+l2announcements:
+  enabled: true
+
+hubble:
+  enabled: true
+  relay:
+    enabled: true
+
+prometheus:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    trustCRDsExist: true
