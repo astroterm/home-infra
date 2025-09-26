@@ -1,0 +1,16 @@
+loki:
+  enabled: false
+localpv-provisioner:
+  localpv:
+    image:
+      registry: quay.io/
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+  hostpathClass:
+    enabled: true
+    name: local-storage
+    reclaimPolicy: Retain
+    isDefaultClass: true
+    basePath: /srv/openebs
