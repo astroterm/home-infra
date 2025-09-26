@@ -27,4 +27,4 @@ spec:
     path: kubernetes/flux
     pullSecret: flux-system
     ref: refs/heads/main
-    url: ssh://git@github.com/astroterm/homelab.git
+    url: ssh://git@github.com/astroterm/home-infra.git
