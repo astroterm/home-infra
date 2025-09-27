@@ -5,3 +5,5 @@ resources:
   - ./namespace.yaml
   - ./cert-manager/ks.yaml
   - ./certificates/ks.yaml
+  - ./cloudflare-ddns/ks.yaml
+  - ./gateways/ks.yaml
