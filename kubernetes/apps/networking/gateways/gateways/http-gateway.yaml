@@ -1,0 +1,43 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: http-gateway
+  namespace: networking
+spec:
+  gatewayClassName: cilium
+  listeners:
+    - name: astrocore
+      hostname: "*.astrocore.dev"
+      port: 443
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: astrocore-cert
+
+    - name: astroterm-org
+      hostname: "*.astroterm.org"
+      port: 443
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: astroterm-cert
+
+    - name: astroterm-dev
+      hostname: "*.astroterm.dev"
+      port: 443
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: astroterm-cert
