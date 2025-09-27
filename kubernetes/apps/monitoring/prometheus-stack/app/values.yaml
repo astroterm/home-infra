@@ -1,0 +1,113 @@
+crds:
+  enabled: false
+cleanPrometheusOperatorObjectNames: true
+
+kubelet:
+  enabled: true
+  serviceMonitor:
+    metricRelabelings:
+      - action: replace
+        sourceLabels: ["node"]
+        targetLabel: instance
+
+kubeApiServer:
+  enabled: true
+
+kubeControllerManager:
+  enabled: false
+
+kubeEtcd:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubeProxy:
+  enabled: false
+
+prometheusOperator:
+  admissionWebhooks:
+    deployment:
+      tolerations:
+        - key: node-role.kubernetes.io/control-plane
+          operator: Exists
+    patch:
+      tolerations:
+        - key: node-role.kubernetes.io/control-plane
+          operator: Exists
+  tolerations:
+    - key: node-role.kubernetes.io/control-plane
+      operator: Exists
+
+prometheus:
+  ingress:
+    enabled: false
+  prometheusSpec:
+    replicas: 1
+    scrapeInterval: 1m # Must match interval in Grafana Helm chart
+    ruleSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+    probeSelectorNilUsesHelmValues: false
+    scrapeConfigSelectorNilUsesHelmValues: false
+    enableAdminAPI: true
+    walCompression: true
+    enableFeatures:
+      - auto-gomemlimit
+      - memory-snapshot-on-shutdown
+      - new-service-discovery-manager
+    retention: 14d
+    retentionSize: 70GB
+    resources:
+      requests:
+        cpu: 200m
+      limits:
+        memory: 2500Mi
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-storage
+          resources:
+            requests:
+              storage: 75Gi
+
+nodeExporter:
+  enabled: true
+
+prometheus-node-exporter:
+  fullnameOverride: node-exporter
+  prometheus:
+    monitor:
+      enabled: true
+      relabelings:
+        - action: replace
+          regex: (.*)
+          replacement: $1
+          sourceLabels: ["__meta_kubernetes_pod_node_name"]
+          targetLabel: kubernetes_node
+
+kubeStateMetrics:
+  enabled: true
+
+kube-state-metrics:
+  fullnameOverride: kube-state-metrics
+  metricLabelsAllowlist:
+    - pods=[*]
+    - deployments=[*]
+    - persistentvolumeclaims=[*]
+  prometheus:
+    monitor:
+      enabled: true
+      relabelings:
+        - action: replace
+          regex: (.*)
+          replacement: $1
+          sourceLabels: ["__meta_kubernetes_pod_node_name"]
+          targetLabel: kubernetes_node
+
+grafana:
+  enabled: false
+  forceDeployDashboards: true

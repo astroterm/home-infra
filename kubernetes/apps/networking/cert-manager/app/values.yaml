@@ -1,0 +1,10 @@
+global:
+  leaderElection:
+    namespace: networking
+installCRDs: true
+prometheus:
+  enabled: true
+  servicemonitor:
+    enabled: true
+config:
+  enableGatewayAPI: true
