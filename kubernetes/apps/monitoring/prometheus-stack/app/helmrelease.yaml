@@ -4,8 +4,8 @@ kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
 spec:
-  interval: 15m
-  timeout: 15m
+  interval: 1h
+  timeout: 10m
   chart:
     spec:
       chart: kube-prometheus-stack
