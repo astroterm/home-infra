@@ -20,6 +20,9 @@ spec:
     cleanupOnFail: true
     remediation:
       retries: 3
+  dependsOn:
+    - name: openebs
+      namespace: storage
   valuesFrom:
     - name: lexismc-values
       kind: ConfigMap
