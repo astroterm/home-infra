@@ -5,14 +5,14 @@ metadata:
   name: &app openebs
   namespace: &namespace flux-system
 spec:
-  targetNamespace: openebs
+  targetNamespace: storage
 
   interval: 1h
   retryInterval: 5m
   timeout: 10m
   prune: true
 
-  path: ./kubernetes/apps/openebs/openebs/app
+  path: ./kubernetes/apps/storage/openebs/app
 
   sourceRef:
     kind: GitRepository
