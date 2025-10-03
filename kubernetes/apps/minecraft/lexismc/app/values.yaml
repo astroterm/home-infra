@@ -1,0 +1,22 @@
+fullnameOverride: lexismc
+minecraftServer:
+  eula: TRUE
+  type: QUILT
+  memory: 4096M
+  modrinth:
+    projects:
+      - lithium
+      - fabric-api
+      - ferrite-core
+  extraEnv:
+    - name: TZ
+      value: "Australia/Sydney"
+
+persistence:
+  dataDir:
+    enabled: true
+    size: 20Gi # pick what you need
+    accessModes: ["ReadWriteOnce"]
+
+serviceAnnotations:
+  "mc-router.itzg.me/externalServerName": "lexismc.astroterm.dev"
