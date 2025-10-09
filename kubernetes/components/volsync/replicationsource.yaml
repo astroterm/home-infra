@@ -11,7 +11,7 @@ spec:
     repository: "${APP}-volsync"
     copyMethod: Direct
     pruneIntervalDays: 7
-    accessModes: ReadWriteOnce
+    accessModes: [ReadWriteOnce]
     retain:
       hourly: 24
       daily: 7

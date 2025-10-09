@@ -9,4 +9,4 @@ spec:
   restic:
     repository: "${APP}-volsync"
     copyMethod: Direct
-    accessModes: ReadWriteOnce
+    accessModes: [ReadWriteOnce]
