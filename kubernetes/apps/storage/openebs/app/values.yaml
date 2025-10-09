@@ -14,3 +14,7 @@ localpv-provisioner:
     reclaimPolicy: Retain
     isDefaultClass: true
     basePath: /srv/openebs
+engines:
+  replicated:
+    mayastor:
+      enabled: false

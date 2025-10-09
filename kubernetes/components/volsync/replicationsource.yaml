@@ -1,0 +1,17 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: ${APP}
+spec:
+  sourcePVC: ${APP}
+  trigger:
+    schedule: "0 * * * *"
+  restic:
+    repository: "${APP}-volsync"
+    copyMethod: Direct
+    pruneIntervalDays: 7
+    accessModes: ReadWriteOnce
+    retain:
+      hourly: 24
+      daily: 7
