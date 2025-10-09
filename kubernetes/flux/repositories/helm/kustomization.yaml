@@ -8,6 +8,7 @@ resources:
   - ./external-secrets.yaml
   - ./itzg.yaml
   - ./jetstack.yaml
+  - ./longhorn.yaml
   - ./metrics-server.yaml
   - ./openebs.yaml
   - ./prometheus-community.yaml

@@ -21,6 +21,8 @@ spec:
     remediation:
       retries: 3
   dependsOn:
+    - name: mc-router
+      namespace: minecraft
     - name: openebs
       namespace: storage
   valuesFrom:

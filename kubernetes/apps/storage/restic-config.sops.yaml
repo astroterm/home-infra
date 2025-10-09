@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ${APP}-volsync
+type: Opaque
+stringData:
+  RESTIC_PASSWORD: ENC[AES256_GCM,data:jlqlgaeIPvam/E1+A+YeIkDFD3iS38a1GNQGS6PxrX0=,iv:XSD9lLdyMFkRt4iH/stlLeccJ1xBNJWSw94V3HP4Qjc=,tag:G1jNIoCQ4mZa+qv5pIdOxg==,type:str]
+  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:Lyj8GTQvkq8TgqnbZlae1dKf0NNa5EOp7g==,iv:W1jhQ7j+nonMXsRujKhBujvP4WK/Z6HjPm1L2bC34Vc=,tag:Cpm8u5q+yUHx1dSaT7ctcA==,type:str]
+  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:Z+oB4fZyfBxG3B0hKzi4rybSLBBj5Agwihw9HSjAvw==,iv:fKyZHNFz4kR9fgXXVa2JgomvKh9cJaIhCwGyfDLahjM=,tag:Ei+OkqvZ/a9SuNxDt0zvEQ==,type:str]
+sops:
+  age:
+    - recipient: age18ks3gzmrm0s8kx4z4kehxy7fl0zjltdl6vdh2j09pnef2hyj24es9whz0n
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBteko3N3FQWDVOcE1OaVpT
+        Wi9SejdGakFKNkUvQnJzSlM0R3VQWDhoU0NNCktCalpmeVFmQW9FamJKdFhvaTRQ
+        WitxYnRtOXRpQzZwcy9RUmJKYmZRNFEKLS0tIDA1MXEzcXNtOG12Wi9xOW1pR0tS
+        VnhhODYwK1M2MDgxd2h6WHNSYWRyMGsKA96DMZiBomPeu7o0B6BeSIire5Hzn8XU
+        I0dDfuzaJ3lvywRiO0UVtGZ2Sn1WAG1FqJrIwZX0DSaTlxERDmS4Dw==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-10-09T02:42:22Z"
+  mac: ENC[AES256_GCM,data:BJ9oVmhqCZxxR6LIme4Z4tKWtejeuWzTggjsYSpKp2/Ep/rLKDQz9OLbRLdYbrGdud0GdD3+V0UebAoEXxSQ2rLTwD7ctPNMPQzbVXPnfSbahg+diDJHyM5cx5iGIpFUwghtbOEa/15TmVKDjHcVyMZsY8vdNc8zAbZMOh/fWWU=,iv:z+TIK9e8GDzcq9QaI7Bqf+JAiHVHTrLGhxbxT92jB9Q=,tag:zuBRZtrjqH4aVz+BtYQ74Q==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  version: 3.11.0
