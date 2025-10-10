@@ -28,6 +28,9 @@ prometheus:
     enabled: true
     trustCRDsExist: true
 
+operator:
+  replicas: 1
+
 cgroup:
   autoMount:
     enabled: false
