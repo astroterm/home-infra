@@ -20,3 +20,6 @@ engines:
   replicated:
     mayastor:
       enabled: false
+
+preUpgradeHook:
+  enabled: false
