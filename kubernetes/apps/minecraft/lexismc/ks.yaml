@@ -15,7 +15,7 @@ spec:
   path: ./kubernetes/apps/minecraft/lexismc/app
 
   components:
-    - ../../../components/volsync
+    - ../../../../components/volsync
 
   postBuild:
     substitute:
