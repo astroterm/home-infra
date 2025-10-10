@@ -13,13 +13,6 @@ spec:
         kind: HelmRepository
         name: backube
         namespace: flux-system
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      retries: 3
   valuesFrom:
     - kind: ConfigMap
       name: volsync-values
