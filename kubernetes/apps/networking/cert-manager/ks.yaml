@@ -42,9 +42,6 @@ spec:
     kind: GitRepository
     name: home-infra
 
-  dependsOn:
-    - name: flux-operator
-      namespace: *namespace
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
